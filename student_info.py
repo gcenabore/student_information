@@ -29,3 +29,8 @@ while True:
     if not is_name_valid(name):
         print("Invalid name. Please enter alphabetic characters only.")
         continue 
+
+    age = input("Enter age: ")
+    if not is_age_valid(age):
+        print("Invalid age. Please enter a number between 0 and 122.")
+        continue
