@@ -34,9 +34,9 @@ def main():
         if not is_age_valid(age):
             print("Invalid age. Please enter a number between 0 and 122.")
             continue
-
+#store valid entries in the array
         entries.append((name, int(age)))
-
+#ask if the user wants another entry
         another_entry = input("Do you want to enter another entry? (Yes/No): ").strip().lower()
         if another_entry == 'no':
             break
@@ -47,6 +47,7 @@ def main():
         print(f"the oldest person is {name} with an age of {age}.")
     else:
         print("No entries were made.")
-
+        
+#this calls the main() function to run the program.
 if __name__ == "__main__":
     main()
