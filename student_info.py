@@ -6,9 +6,6 @@
     #continue the loop until the user says "No"
     #when finished, find and display the oldest person in the entry
 
-
-def main():
-    entries = [] #List to store tuples of (name, age)
     
     #check if name contains only alphabetic characters
 def is_name_valid(name: str) -> bool:
@@ -23,14 +20,33 @@ def get_oldest_person(entries: list) -> tuple:
     oldest = max(entries, key=lambda entry: entry[1])
     return oldest
 
-#input and validate name
-while True:
-    name = input("Enter student name: ")
-    if not is_name_valid(name):
-        print("Invalid name. Please enter alphabetic characters only.")
-        continue 
+def main():
+    entries = []
 
-    age = input("Enter age: ")
-    if not is_age_valid(age):
-        print("Invalid age. Please enter a number between 0 and 122.")
-        continue
+#input and validate name
+    while True:
+        name = input("Enter student name: ")
+        if not is_name_valid(name):
+            print("Invalid name. Please enter alphabetic characters only.")
+            continue 
+#input and validate age
+        age = input("Enter age: ")
+        if not is_age_valid(age):
+            print("Invalid age. Please enter a number between 0 and 122.")
+            continue
+
+        entries.append((name, int(age)))
+
+        another_entry = input("Do you want to enter another entry? (Yes/No): ").strip().lower()
+        if another_entry == 'no':
+            break
+        if another_entry == 'n':
+            break
+    if entries:
+        name, age = get_oldest_person(entries)
+        print(f"the oldest person is {name} with an age of {age}.")
+    else:
+        print("No entries were made.")
+
+if __name__ == "__main__":
+    main()
